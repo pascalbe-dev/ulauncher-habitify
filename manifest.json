@@ -4,9 +4,6 @@
     "description": "Interact with your Habitify account",
     "developer_name": "Pascal Betting",
     "icon": "images/icon.png",
-    "options": {
-        "query_debounce": 1
-    },
     "preferences": [
         {
             "id": "kw",

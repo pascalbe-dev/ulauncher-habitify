@@ -8,7 +8,7 @@ TODO: ADD DEMO GIF
 
 ## Features
 
-TODO: ADD FEATURES
+- display all habits for the current day / time
 
 ## Requirements
 
