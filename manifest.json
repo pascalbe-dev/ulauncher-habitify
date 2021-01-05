@@ -1,0 +1,26 @@
+{
+    "required_api_version": "^2.0.0",
+    "name": "Habitify",
+    "description": "Interact with your Habitify account",
+    "developer_name": "Pascal Betting",
+    "icon": "images/icon.png",
+    "options": {
+        "query_debounce": 1
+    },
+    "preferences": [
+        {
+            "id": "kw",
+            "type": "keyword",
+            "name": "Habitify",
+            "description": "Interact with your Habitify account",
+            "default_value": "ha"
+        },
+        {
+            "id": "api_credential",
+            "type": "input",
+            "name": "Habitify access token",
+            "description": "The API credential provided by Habitify to access the Habitify API",
+            "default_value": ""
+        }
+    ]
+}
