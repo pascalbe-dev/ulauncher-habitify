@@ -22,7 +22,7 @@ class KeywordQueryEventListener(EventListener):
         if not token:
             return self.get_error_result()
 
-        habits = self.get_habits(token)
+        habits = self.get_habits(token, extension.only_pending)
         items = []
         for habit in habits:
             items.append(ExtensionResultItem(icon='images/icon.png',
@@ -32,10 +32,14 @@ class KeywordQueryEventListener(EventListener):
 
         return RenderResultListAction(items)
 
-    def get_habits(self, token):
+    def get_habits(self, token, only_pending):
         current_date = datetime.now().isoformat()
-        response = requests.get(
-            "https://api.habitify.me/habits?target_date=" + current_date, headers={"Authorization": token})
+        url = "https://api.habitify.me/habits?target_date=" + current_date
+
+        if only_pending:
+            url += "&status=pending"
+
+        response = requests.get(url, headers={"Authorization": token})
         return response.json()
 
     def get_error_result(self):
@@ -48,6 +52,7 @@ class KeywordQueryEventListener(EventListener):
 class PreferencesEventListener(EventListener):
     def on_event(self, event, extension):
         extension.token = event.preferences['api_credential']
+        extension.only_pending = event.preferences['only_pending'] == 'True'
 
 
 if __name__ == '__main__':

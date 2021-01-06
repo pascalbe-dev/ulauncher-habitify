@@ -18,6 +18,13 @@
             "name": "Habitify access token",
             "description": "The API credential provided by Habitify to access the Habitify API",
             "default_value": ""
+        },
+        {
+            "id": "only_pending",
+            "type": "input",
+            "name": "Display only pending habits",
+            "description": "Whether to display only the pending habits (not the completed ones). Valid values are 'True' or 'False'",
+            "default_value": "True"
         }
     ]
 }
